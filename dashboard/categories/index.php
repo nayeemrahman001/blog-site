@@ -135,17 +135,26 @@ require_once(ROOT_PATH . '/dashboard/includes/header.php');
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title">Data Table</strong>
+                                <a class="btn btn-success" href="<?= BASE_URL . 'dashboard/categories/create.php' ?>">Add</a>
                             </div>
                             <div class="card-body">
-                                <?php 
+                                <?php
 
                                 if (isset($_SESSION['success'])) {
-                                    ?>
+                                ?>
                                     <div class="alert alert-success" role="alert">
-                                        <?= $_SESSION['success']?>
+                                        <?= $_SESSION['success'] ?>
                                     </div>
-                                    <?php
+                                <?php
                                     unset($_SESSION['success']);
+                                }
+                                if (isset($_SESSION['error'])) {
+                                ?>
+                                    <div class="alert alert-danger" role="alert">
+                                        <?= $_SESSION['error'] ?>
+                                    </div>
+                                <?php
+                                    unset($_SESSION['error']);
                                 }
                                 ?>
                                 <table id="bootstrap-data-table" class="table table-striped table-bordered">
